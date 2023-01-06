@@ -5,7 +5,6 @@ class getTrDizinPublication {
 
 	function __construct() {
 		}
-		
 	final function trDizinPublication ($numara) {
 			
 	$preText="https://search.trdizin.gov.tr/yayin/detay/";
