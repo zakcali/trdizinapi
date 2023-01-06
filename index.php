@@ -11,12 +11,13 @@ programmed by Zafer Akçalı, MD -->
 <?php
 // By Zafer Akçalı, MD
 // Zafer Akçalı tarafından programlanmıştır
-require_once 'JsonTrPublication.php';
-$tr=new getJsonTrPublication ();
+require_once 'getTrDizinPublication.php';
+$tr=new getTrDizinPublication ();
 
 if (isset($_POST['trdizinid'])) {
 $gelenTrdizin=preg_replace("/[^0-9]/", "", $_POST["trdizinid"] ); // sadece rakamlar
-$tr->trPublication ($gelenTrdizin);
+if ($gelenTrdizin !== '')
+	$tr->trDizinPublication ($gelenTrdizin);
 }
 ?>
 <a href="trdizin id nerede.png" target="_blank"> Trdizin numarasına nereden bakılır? </a>
