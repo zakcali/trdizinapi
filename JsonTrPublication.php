@@ -110,7 +110,7 @@ class getJsonTrPublication {
 
 			foreach ($cisim->author as $yazar) {
 				$this->yazarlar.=$yazar->authorNameInPaper.", ";
-				$this->yazarS=$this->yazarS+1;
+				$this->yazarS+=1;
 					}
 			$this->yazarlar=substr ($this->yazarlar,0,-2);
 
