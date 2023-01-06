@@ -11,9 +11,10 @@ class getJsonTrPublication {
 		$preText="https://search.trdizin.gov.tr/yayin/detay/";
 		$url = $preText.$numara.'?view=json';
 	$headers = get_headers($url);
-	if(substr($headers[0], 9, 3) != "200")
-		$this->dikkat='yayın bulunamadı';    
-	else { // 404 hatası gelmedi, demek ki yayın sayfası var.
+	if(substr($headers[0], 9, 3) != "200") {
+		$this->dikkat='yayın bulunamadı';   
+		return;
+		}		
 
 	$icerik=@file_get_contents($url);
 //	echo $icerik;
@@ -119,7 +120,7 @@ class getJsonTrPublication {
 				$this->yazarS=$this->yazarS+1;
 					}
 			$this->yazarlar=substr ($this->yazarlar,0,-2);
-		} // icerik geldi ,işlendi
+
 	} // final function trPublication
 
 }
