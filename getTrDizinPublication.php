@@ -34,41 +34,60 @@ class getTrDizinPublication {
 // yayın türü
 	if (isset ($cisim->docType)) {
 		$this->PublicationType = $cisim->docType;
-		if ($cisim->docType == 'paper')
-			$this->PublicationType ='Makale';
-		else if ($cisim->docType == 'project')
-			$this->PublicationType ='Proje';
+		switch ($cisim->docType) {
+			case 'paper':
+				$this->PublicationType ='Makale';
+				break;
+			case 'project':
+				$this->PublicationType ='Proje';
+				break;
+				}
 	}
 // makale türü
 	if (isset ($cisim->publicationType)) {
 		$this->ArticleType = $cisim->publicationType;
-		if ($cisim->publicationType == 'RESEARCH')
-			$this->ArticleType = 'Araştırma Makalesi';
-		else if ($cisim->publicationType == 'LETTER_TO_EDITOR')
-			$this->ArticleType = 'Editöre Mektup';
-		else if ($cisim->publicationType == 'FACT_PRESENTATION')
-			$this->ArticleType = 'Olgu Sunumu';
-		else if ($cisim->publicationType == 'COMPILATION')
-			$this->ArticleType = 'Derleme';
-		else if ($cisim->publicationType == 'BOOK_PRESENTATION')
-			$this->ArticleType = 'Kitap Tanıtımı';
-		else if ($cisim->publicationType == 'TRANSLATION')
-			$this->ArticleType = 'Çeviri';
-		else if ($cisim->publicationType == 'EDITORIAL')
-			$this->ArticleType = 'Editoryal';
-		else if ($cisim->publicationType == 'LETTER')
-			$this->ArticleType = 'Mektup';
-		else if ($cisim->publicationType == 'REPORT')
-			$this->ArticleType = 'Bildiri';
-		else if ($cisim->publicationType == 'SHORT_REPORT')
-			$this->ArticleType = 'Kısa Bildiri';
-		else if ($cisim->publicationType == 'MEETING_SUMMARY')
-			$this->ArticleType = 'Toplantı Özetleri';
-		else if ($cisim->publicationType == 'CORRECTION')
-			$this->ArticleType = 'Düzeltme';
-		else if ($cisim->publicationType == 'OTHER')
-			$this->ArticleType = 'Diğer';
-			}
+		switch ($cisim->publicationType) {
+			case 'RESEARCH':
+				$this->ArticleType = 'Araştırma Makalesi';	
+				break;
+			case 'LETTER_TO_EDITOR':
+				$this->ArticleType = 'Editöre Mektup';	
+				break;
+			case 'FACT_PRESENTATION':
+				$this->ArticleType = 'Olgu Sunumu';	
+				break;
+			case 'COMPILATION':
+				$this->ArticleType = 'Derleme';	
+				break;
+			case 'BOOK_PRESENTATION':
+				$this->ArticleType = 'Kitap Tanıtımı';	
+				break;
+			case 'TRANSLATION':
+				$this->ArticleType = 'Çeviri';	
+				break;
+			case 'EDITORIAL':
+				$this->ArticleType = 'Editoryal';	
+				break;
+			case 'LETTER':
+				$this->ArticleType = 'Mektup';	
+				break;
+			case 'REPORT':
+				$this->ArticleType = 'Bildiri';	
+				break;
+			case 'SHORT_REPORT':
+				$this->ArticleType = 'Kısa Bildiri';	
+				break;
+			case 'MEETING_SUMMARY':
+				$this->ArticleType = 'Toplantı Özetleri';	
+				break;
+			case 'CORRECTION':
+				$this->ArticleType = 'Düzeltme';	
+				break;
+			case 'OTHER':
+				$this->ArticleType = 'Diğer';	
+				break;
+		}
+	}
 // Özet
 	if (isset ($cisim->abstract))
 		$this->AbstractText = $cisim->abstract;
