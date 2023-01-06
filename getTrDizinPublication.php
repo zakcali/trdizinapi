@@ -32,12 +32,13 @@ class getTrDizinPublication {
 	if (isset ($cisim->title)) 
 		$this->ArticleTitle = $cisim->title;
 // yayın türü
-	if (isset ($cisim->docType))
+	if (isset ($cisim->docType)) {
 		$this->PublicationType = $cisim->docType;
 		if ($cisim->docType == 'paper')
 			$this->PublicationType ='Makale';
 		else if ($cisim->docType == 'project')
 			$this->PublicationType ='Proje';
+	}
 // makale türü
 	if (isset ($cisim->publicationType)) {
 		$this->ArticleType = $cisim->publicationType;
