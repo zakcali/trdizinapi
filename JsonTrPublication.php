@@ -15,7 +15,6 @@ class getJsonTrPublication {
 		$this->dikkat='yayın bulunamadı';   
 		return;
 		}		
-
 	$icerik=@file_get_contents($url);
 //	echo $icerik;
 // On Windows, uncomment the following line in php.ini, and restart the Apache server:
@@ -38,7 +37,6 @@ class getJsonTrPublication {
 					$this->PublicationType ='Makale';
 				else if ($cisim->docType == 'project')
 					$this->PublicationType ='Proje';
-
 // makale türü
 			if (isset ($cisim->publicationType)) {
 				$this->ArticleType = $cisim->publicationType;
@@ -72,29 +70,24 @@ class getJsonTrPublication {
 // Özet
 			if (isset ($cisim->abstract))
 				$this->AbstractText = $cisim->abstract;
-				
 // doi
 			if (isset ($cisim->publicationNumber))
 				$this->doi = $cisim->publicationNumber;
-				
 // Dergi ismi
 			if (isset ($cisim->journalName))
 				$this->dergi = $cisim->journalName;
 // Dergi linki
 			if (isset ($cisim->journalCode))
 				$this->dergiLinki = $cisim->journalCode;
-	
 // Aldığı atıf sayısı
 // dergi kısa ismi
 // PMID
-
 // issn
 			if (isset ($cisim->issn)) 
 				$this->ISSN = $cisim->issn;
 // issn
 			if (isset ($cisim->eissn))
 				$this->eISSN = $cisim->eissn;
-				
 //Yıl
 			if (isset ($cisim->issue->issue_year))
 				$this->Year=$cisim->issue->issue_year;
@@ -116,7 +109,7 @@ class getJsonTrPublication {
 			$this->yazarlar="";
 
 			foreach ($cisim->author as $yazar) {
-				$this->yazarlar=$this->yazarlar.$yazar->authorNameInPaper.", ";
+				$this->yazarlar.=$yazar->authorNameInPaper.", ";
 				$this->yazarS=$this->yazarS+1;
 					}
 			$this->yazarlar=substr ($this->yazarlar,0,-2);
