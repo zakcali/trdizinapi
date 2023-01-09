@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- trdizinapi V1.0: bu yazılım Dr. Zafer Akçalı tarafından oluşturulmuştur 
+<!-- trdizinapi V1.2: bu yazılım Dr. Zafer Akçalı tarafından oluşturulmuştur 
 programmed by Zafer Akçalı, MD -->
 <html>
 <head>

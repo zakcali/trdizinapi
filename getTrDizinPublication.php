@@ -5,6 +5,7 @@ class getTrDizinPublication {
 
 	function __construct() {
 		}
+		
 	final function trDizinPublication ($numara) {
 			
 	$preText="https://search.trdizin.gov.tr/yayin/detay/";
@@ -21,7 +22,8 @@ class getTrDizinPublication {
 // extension=mbstring
 // extension=php_mbstring.dll
 	$html= mb_convert_encoding($icerik, 'HTML-ENTITIES', "UTF-8");
-	$cisim1=json_decode ($html);
+	$strippedHtml=str_replace ('\\r','',$html);
+	$cisim1=json_decode ($strippedHtml);
 	$cisim=$cisim1->records[0];
 //	print_r($cisim);
 // trdizin numarası
