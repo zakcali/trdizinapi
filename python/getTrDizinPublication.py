@@ -1,4 +1,4 @@
-# trdizinapi V1.0, by Zafer Akçalı
+# trdizinapi V1.1, by Zafer Akçalı
 
 import urllib.request as req
 from urllib.error import URLError, HTTPError
@@ -9,9 +9,10 @@ import json
 class getTrDizinPublication: 
     def __init__(self):
         self.yazarlar=''; self.trdizinid=''; self.doi=''; self.ArticleTitle=''; self.dergi=''; self.ISOAbbreviation=''; self.ISSN=''; self.eISSN=''; self.Year=''; self.Volume=''; self.Issue=''; self.StartPage=''; self.EndPage=''; self.PublicationType=''; self.AbstractText=''; self.dergiLinki=''; self.ArticleType=''; self.dikkat=''; 
-        self.yazarS=0
-    
+        self.yazarS=0             
+     
     def trDizinPublication (self,numara):
+        self.__init__()  # değerleri tekrar sıfırla
         preText = "https://search.trdizin.gov.tr/yayin/detay/"
         postText = "?view=json"
         url = preText+numara+postText
@@ -28,7 +29,7 @@ class getTrDizinPublication:
         self.dikkat="yayın bulundu"
         
         bytecode = response.read ()
-        htmlstr = bytecode.decode().replace ("\\r","") # carriage return \r karakterlerini çıkart
+        htmlstr = bytecode.decode().replace ("\\r"," ") # carriage return \r karakterlerini çıkart
 # print (htmlstr)
         trDic=json.loads (htmlstr) 
         for key,value in trDic['records'][0].items():

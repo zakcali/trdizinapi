@@ -1,7 +1,5 @@
 from getTrDizinPublication import getTrDizinPublication
-
 trDizinNumara = input("trdizin numarasını giriniz:")
-
 tr = getTrDizinPublication ()
 tr.trDizinPublication (trDizinNumara)
 print ("", (tr.dikkat))
