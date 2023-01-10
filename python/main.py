@@ -4,7 +4,7 @@ trDizinNumara = input("trdizin numarasını giriniz:")
 tr = getTrDizinPublication ()
 tr.trDizinPublication (trDizinNumara)
 
-print ("", (tr.dikkat))
+print (tr.dikkat)
 print ("Trdizin id: ", (tr.trdizinid))
 print ("doi: ", (tr.doi))
 print ("Başlık: ", (tr.ArticleTitle)) 
