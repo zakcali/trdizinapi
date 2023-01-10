@@ -1,7 +1,9 @@
 from getTrDizinPublication import getTrDizinPublication
+
 trDizinNumara = input("trdizin numarasını giriniz:")
 tr = getTrDizinPublication ()
 tr.trDizinPublication (trDizinNumara)
+
 print ("", (tr.dikkat))
 print ("Trdizin id: ", (tr.trdizinid))
 print ("doi: ", (tr.doi))
@@ -12,8 +14,7 @@ print ("eISSN: ", (tr.eISSN))
 print ("Yıl: ", (tr.Year))
 print ("Cilt: ", (tr.Volume))
 print ("Sayı: ", (tr.Issue))
-print ("Sayfa/numara: ", (tr.StartPage))
-print ("Sayfa/numara bitiş: ", (tr.EndPage))
+print (f"Sayfa/numara: {tr.StartPage} - {tr.EndPage}")
 print ("Yazar sayısı: ", (tr.yazarS))
 print ("Yazar(lar): ", (tr.yazarlar))
 print ("Dergi numarası: ", (tr.dergiLinki))
