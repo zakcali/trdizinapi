@@ -11,7 +11,11 @@ class getTrDizinPublication {
 	$preText="https://search.trdizin.gov.tr/yayin/detay/";
 	$postText="?view=json";
 	$url = $preText.$numara.$postText;
-	$headers = get_headers($url);
+	$headers = @get_headers($url);	
+	if (!$headers) {
+			$this->dikkat='bağlantı kurulamadı';   
+			return;
+			}
 	if(substr($headers[0], 9, 3) != "200") {
 		$this->dikkat='yayın bulunamadı';   
 		return;
