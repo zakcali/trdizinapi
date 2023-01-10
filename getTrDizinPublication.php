@@ -1,12 +1,15 @@
 <?php
 class getTrDizinPublication {
-	public $trdizinid='', $doi='', $ArticleTitle='', $dergi='', $ISOAbbreviation='', $ISSN='', $eISSN='', $Year='', $Volume='', $Issue='', $StartPage='', $EndPage='', $yazarlar='', $PublicationType='', $AbstractText='', $dergiLinki='', $ArticleType='', $dikkat='';
-	public $yazarS=0;
-
 	function __construct() {
+		$this->initialize();
 		}
-		
+	function initialize () {
+		$this->trdizinid=''; $this->doi=''; $this->ArticleTitle=''; $this->dergi=''; $this->ISSN=''; $this->eISSN=''; $this->Year=''; $this->Volume=''; $this->Issue=''; $this->StartPage=''; $this->EndPage=''; $this->yazarlar=''; $this->PublicationType=''; $this->AbstractText='';$this->dergiLinki=''; $this->ArticleType=''; $this->dikkat='';
+		$this->yazarS=0; 
+		}
+			
 	final function trDizinPublication ($numara) {
+	$this->initialize();
 			
 	$preText="https://search.trdizin.gov.tr/yayin/detay/";
 	$postText="?view=json";
