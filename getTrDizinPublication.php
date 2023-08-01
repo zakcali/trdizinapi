@@ -5,7 +5,7 @@ class getTrDizinPublication {
 		}
 	function initialize () {
 		$this->trdizinid=''; $this->doi=''; $this->ArticleTitle=''; $this->dergi=''; $this->ISSN=''; $this->eISSN=''; $this->Year=''; $this->Volume=''; $this->Issue=''; $this->StartPage=''; $this->EndPage=''; $this->yazarlar=''; $this->PublicationType=''; $this->AbstractText='';$this->dergiLinki=''; $this->ArticleType=''; $this->dikkat='';
-		$this->yazarS=0; 
+		$this->yazarS=0; $this->sil='';
 		}
 			
 	final function trDizinPublication ($numara) {
@@ -29,7 +29,7 @@ class getTrDizinPublication {
 // extension=mbstring
 // extension=php_mbstring.dll
 	$html= mb_convert_encoding($icerik, 'HTML-ENTITIES', "UTF-8");
-	$strippedHtml=str_replace ('\\r','',$html);
+	$strippedHtml=str_replace ('\\r',' ',$html);
 	$cisim1=json_decode ($strippedHtml);
 	$cisim=$cisim1->records[0];
 //	print_r($cisim);
@@ -136,10 +136,14 @@ class getTrDizinPublication {
 	$this->yazarS=0;
 // yazarlar
 	$this->yazarlar="";
+    $yazar_dizi= array();
 	foreach ($cisim->author as $yazar) {
-		$this->yazarlar.=$yazar->authorNameInPaper.", ";
-		$this->yazarS+=1;
-			}
+        $yazar_dizi[$yazar->authorOrderNumber] = $yazar->authorNameInPaper;
+        }
+        $this->yazarS= count($yazar_dizi);
+        for($i = 0; $i < $this->yazarS; $i++) {
+            $this->yazarlar.= $yazar_dizi [$i+1].", ";
+        }
 	$this->yazarlar=substr ($this->yazarlar,0,-2);
 
 	} // final function trDizinPublication
